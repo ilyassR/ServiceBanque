@@ -1,8 +1,9 @@
 package com.m2i.banque.entities;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity
+@Entity @DiscriminatorValue("CE")
 public class CompteEpargne extends Compte {
 
 	private double taux;
