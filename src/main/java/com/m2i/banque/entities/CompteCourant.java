@@ -3,7 +3,8 @@ package com.m2i.banque.entities;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity @DiscriminatorValue("CC")
+@Entity
+@DiscriminatorValue("CC")
 public class CompteCourant extends Compte {
 	
 	private double decouvert;

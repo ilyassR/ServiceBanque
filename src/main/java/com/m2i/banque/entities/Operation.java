@@ -3,14 +3,18 @@ package com.m2i.banque.entities;
 import java.time.Instant;
 
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity @Inheritance(strategy = InheritanceType.SINGLE_TABLE) @DiscriminatorColumn(name="Type_Operation")
+@Entity 
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) 
+@DiscriminatorColumn(name="TYPE_OP", discriminatorType = DiscriminatorType.STRING, length=1)
 public abstract class Operation {
 	
 	@Id
@@ -22,6 +26,11 @@ public abstract class Operation {
 	private double montant;
 	
 	@ManyToOne
+	@JoinColumn(name="NUM_CPTE")
+	private Compte compte;
+	
+	@ManyToOne
+	@JoinColumn(name="NUM_EMP")
 	private Employe employe;
 
 	public Instant getDateOperation() {
@@ -50,6 +59,14 @@ public abstract class Operation {
 
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
+	}
+
+	public Compte getCompte() {
+		return compte;
+	}
+
+	public void setCompte(Compte compte) {
+		this.compte = compte;
 	}
 
 }

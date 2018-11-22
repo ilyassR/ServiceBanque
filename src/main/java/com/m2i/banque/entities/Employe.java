@@ -23,6 +23,8 @@ public class Employe {
 	
 	private String nomEmploye;
 	
+	private double salaire;
+	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	private Collection<Groupe> groupes;
@@ -31,9 +33,17 @@ public class Employe {
 	private Collection<Compte> comptes;
 	
 	@ManyToOne
-	@JoinTable(name = "supHierarchique_employe")
+	@JoinTable(name = "NUM_EMP_SUP")
 	private Employe supHierarchique;
 	
+	public double getSalaire() {
+		return salaire;
+	}
+
+	public void setSalaire(double salaire) {
+		this.salaire = salaire;
+	}
+
 	public String getNomEmploye() {
 		return nomEmploye;
 	}

@@ -12,9 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import com.m2i.banque.enums.EnumGroupeName;
 
 @Entity
@@ -28,10 +25,10 @@ public class Groupe {
 	private EnumGroupeName nomGroupe;
 	
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "groupes")
-	@OnDelete(action=OnDeleteAction.CASCADE)
-	@JoinTable(name = "groupe_employes",
-            joinColumns = { @JoinColumn(name = "groupe_numGroupe") },
-            inverseJoinColumns = { @JoinColumn(name = "employe_codeEmploye") })
+	//@OnDelete(action=OnDeleteAction.CASCADE)
+	@JoinTable(name = "GROUPES_EMP",
+            joinColumns = { @JoinColumn(name = "NUM_GROUPE") },
+            inverseJoinColumns = { @JoinColumn(name = "NUM_EMP") })
 	private Collection<Employe> employes;
 
 	public EnumGroupeName getNomGroupe() {
