@@ -6,13 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Employe {
@@ -26,7 +24,10 @@ public class Employe {
 	private double salaire;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
-	@OnDelete(action=OnDeleteAction.CASCADE)
+	//@OnDelete(action=OnDeleteAction.CASCADE)
+	@JoinTable(name = "EMP_GROUPES",
+    joinColumns = { @JoinColumn(name = "NUM_EMP") },
+    inverseJoinColumns = { @JoinColumn(name = "NUM_GROUPE") })
 	private Collection<Groupe> groupes;
 	
 	@OneToMany(mappedBy = "employe")

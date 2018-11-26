@@ -8,8 +8,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import com.m2i.banque.enums.EnumGroupeName;
@@ -26,9 +24,6 @@ public class Groupe {
 	
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "groupes")
 	//@OnDelete(action=OnDeleteAction.CASCADE)
-	@JoinTable(name = "GROUPES_EMP",
-            joinColumns = { @JoinColumn(name = "NUM_GROUPE") },
-            inverseJoinColumns = { @JoinColumn(name = "NUM_EMP") })
 	private Collection<Employe> employes;
 
 	public EnumGroupeName getNomGroupe() {

@@ -1,0 +1,1 @@
+ALTER TABLE employe ADD COLUMN age INTEGER;
