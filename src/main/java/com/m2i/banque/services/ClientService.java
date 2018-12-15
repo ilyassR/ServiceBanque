@@ -1,4 +1,4 @@
-package services;
+package com.m2i.banque.services;
 
 import com.m2i.banque.entities.Client;
 
