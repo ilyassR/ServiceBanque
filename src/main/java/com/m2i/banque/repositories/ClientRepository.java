@@ -7,5 +7,7 @@ import com.m2i.banque.entities.Client;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
+	
+	public Client findByCodeClient(Long id);
 
 }
