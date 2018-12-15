@@ -1,0 +1,1 @@
+INSERT INTO employe VALUES ("Ilyass", 100); 
