@@ -1,4 +1,4 @@
-package com.m2i.banque.entities;
+package com.m2i.banque.models;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

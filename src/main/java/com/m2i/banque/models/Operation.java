@@ -1,4 +1,4 @@
-package com.m2i.banque.entities;
+package com.m2i.banque.models;
 
 import java.time.Instant;
 

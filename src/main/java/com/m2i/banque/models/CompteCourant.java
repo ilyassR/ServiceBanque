@@ -1,5 +1,6 @@
-package com.m2i.banque.entities;
+package com.m2i.banque.models;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("CC")
 public class CompteCourant extends Compte {
 	
+	@Column(name="DECOUVERT")
 	private double decouvert;
 
 	public double getDecouvert() {

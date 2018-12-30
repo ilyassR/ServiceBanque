@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.m2i.banque.entities.Operation;
+import com.m2i.banque.models.Operation;
 
 /**
  * @author IlyassRAHMOUNE
